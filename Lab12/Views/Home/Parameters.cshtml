@@ -1,0 +1,22 @@
+﻿@model Lab12.Models.CalcModel
+
+@{
+    ViewData["Title"] = "ModelBindingInParameters - Lab12";
+    string action = ViewContext.RouteData.Values["Action"].ToString();
+}
+
+<h1 class="display-4">ModelBindingInParameters</h1>
+
+@using (Html.BeginForm(action, "Home", FormMethod.Post))
+{
+    @Html.TextBox("firstValue")
+    <br />
+    <br />
+    @Html.DropDownList("operation", new SelectList(new string [] {"+", "-", "*", "/"}))
+    <br />
+    <br />
+    @Html.TextBox("secondValue")
+    <br />
+    <br />
+    <button type="submit">Sumbit</button>
+}
